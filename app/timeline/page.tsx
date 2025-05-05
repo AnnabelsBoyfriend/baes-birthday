@@ -104,7 +104,8 @@ export default function TimelinePage() {
 
       {modal && (
         <div className="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4">
-          <div className="relative w-full max-w-3xl h-[55vh] bg-white rounded-xl overflow-hidden shadow-xl animate-fade-in">
+          <div className="relative w-full max-w-3xl max-h-[90vh] bg-white rounded-xl overflow-hidden shadow-xl animate-fade-in p-4 flex flex-col justify-center">
+
             {/* Close button */}
             <button
               onClick={closeModal}
@@ -115,7 +116,8 @@ export default function TimelinePage() {
 
             {/* Image */}
             <div className="flex items-center justify-center w-full h-full">
-              <div className="relative w-[90%] max-w-[700px] aspect-[3/4]">
+            <div className="relative w-full max-w-[700px] aspect-[3/4] mx-auto">
+
                 <Image
                   src={`/photos/${modal.folder}/${modal.index + 1}.jpg`}
                   alt="Memory"
