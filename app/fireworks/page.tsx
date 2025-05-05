@@ -49,7 +49,7 @@ export default function FireworksPage() {
       rockets.push({
         x,
         y: canvas.height,
-        vx: 0,
+        vx: (Math.random() - 0.5) * 1,
         vy: -(6 + (canvas.height - targetY) * 0.01), // increase speed for higher targets
         targetY,
         baseColor,
@@ -89,6 +89,7 @@ export default function FireworksPage() {
       // Rockets
       for (let i = rockets.length - 1; i >= 0; i--) {
         const r = rockets[i];
+        r.x += r.vx;
         r.y += r.vy;
         r.vy += 0.1;
 
@@ -151,9 +152,12 @@ export default function FireworksPage() {
   }, []);
 
   return (
-    <div className="relative h-screen w-screen bg-pink-500 overflow-hidden">
-      <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none" />
-
+    <div className="relative flex flex-col h-[100dvh] w-screen bg-pink-500 overflow-hidden">
+      <canvas
+        ref={canvasRef}
+        className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none"
+      />
+  
       {showMessage && (
         <div
           className={`z-10 absolute inset-0 flex items-center justify-center text-center px-4 ${pacifico.className}`}
@@ -166,29 +170,26 @@ export default function FireworksPage() {
           </div>
         </div>
       )}
-
-{canLaunch && (
-  <div className="z-10 mb-5 absolute bottom-10 left-1/2 transform -translate-x-1/2 flex gap-4">
-  <button
-  onClick={() => (window as any).launchFirework()}
-  className="bg-white/90 mr-20 text-pink-700 px-4 py-2 rounded-full font-semibold text-sm shadow hover:bg-white transition flex items-center gap-2"
->
-  <span className="text-base">🎆</span>
-  <span>Single</span>
-</button>
-
-<button
-  onClick={() => (window as any).rapidFireworks()}
-  className="bg-white/90 text-pink-700 px-4 py-2 rounded-full font-semibold text-sm shadow hover:bg-white transition flex items-center gap-2"
->
-  <span className="text-base">🎇</span>
-  <span>Rapid</span>
-</button>
-
-</div>
-
-)}
-
+  
+      {canLaunch && (
+        <div className="z-10 mt-auto mb-10 flex justify-center gap-6">
+          <button
+            onClick={() => (window as any).launchFirework()}
+            className="bg-white/90 text-pink-700 px-4 py-2 rounded-full font-semibold text-sm shadow hover:bg-white transition flex items-center gap-2"
+          >
+            <span className="text-base">🎆</span>
+            <span>Single</span>
+          </button>
+  
+          <button
+            onClick={() => (window as any).rapidFireworks()}
+            className="bg-white/90 text-pink-700 px-4 py-2 rounded-full font-semibold text-sm shadow hover:bg-white transition flex items-center gap-2"
+          >
+            <span className="text-base">🎇</span>
+            <span>Rapid</span>
+          </button>
+        </div>
+      )}
     </div>
   );
-}
+}  
