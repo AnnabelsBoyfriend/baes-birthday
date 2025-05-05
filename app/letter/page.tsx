@@ -36,7 +36,9 @@ export default function LetterPage() {
 
         <p className="text-md text-gray-600 mt-6 italic">
           Just so you know, since you been on my ass asking me why I'm not texting you back and stuff recently, this is why... Oh, and I might be broke, 
-          but I never run out of love to give to you. I love you very much ❤️. 
+          but I never run out of love to give to you. 
+          <br />
+          I love you very much ❤️. 
           <br />
           <br />
           P.S. Check out the slot machine later, I made a fun game for us to try...
