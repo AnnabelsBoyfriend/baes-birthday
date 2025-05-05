@@ -18,7 +18,10 @@ export default function FireworksPage() {
     return () => clearTimeout(timeout);
   }, []);
 
+  
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -39,6 +42,10 @@ export default function FireworksPage() {
     }
 
     function launchFirework(x: number, targetY: number, baseColor: { h: number; s: number; l: number }) {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
       rockets.push({
         x,
         y: canvas.height,
@@ -72,6 +79,10 @@ export default function FireworksPage() {
     }
 
     function animate() {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
       ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -117,6 +128,10 @@ export default function FireworksPage() {
     animate();
 
     function fireSingleRocket() {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
       const center = canvas.width / 2;
       const spread = canvas.width * 0.3;
       const x = center + (Math.random() - 0.5) * spread;
