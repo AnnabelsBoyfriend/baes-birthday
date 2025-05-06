@@ -24,8 +24,7 @@ export default function BaeButtons() {
           body: JSON.stringify({
             embeds: [
               {
-                title: sender === 'fromBae' ? "Message from A" : "Message from T",
-                description: content,
+                title: content,
                 color: sender === 'fromBae' ? 0xF472B6 : 0x42a1f5, // Tailwind's pink-400 (optional)
               },
             ],
@@ -84,19 +83,19 @@ export default function BaeButtons() {
         <div className="relative w-full max-w-xs mb-10">
   {/* Buttons */}
   <div className="space-y-4">
-    <button onClick={() => sendMessage('💌 \u00A0 I miss you!')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
+    <button onClick={() => sendMessage('💌 I miss you!')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
       I Miss You
     </button>
-    <button onClick={() => sendMessage('🐻 \u00A0 Come cuddle!')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
+    <button onClick={() => sendMessage('🐻 Come cuddle!')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
       Cuddle Time
     </button>
-    <button onClick={() => sendMessage('🍱 \u00A0 Let’s eat!')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
+    <button onClick={() => sendMessage('🍱 Let’s eat!')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
       Let’s Eat
     </button>
-    <button onClick={() => sendMessage("🚨 \u00A0 SOS!")} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
+    <button onClick={() => sendMessage("🚨 SOS!")} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
       Emergency
     </button>
-    <button onClick={() => sendMessage('🍆\u00A0💦 \u00A0 I’m Horny,\u00A0 Let’s Fuck Already')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
+    <button onClick={() => sendMessage('🍆💦 I’m Horny, Let’s Fuck Already')} className="w-70 bg-white px-6 py-3 rounded-full shadow text-pink-600 font-semibold hover:bg-pink-100">
         🙈
     </button>
   </div>
