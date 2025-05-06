@@ -93,45 +93,31 @@ export default function Home() {
   }
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen text-center bg-pink-100 overflow-hidden">
-      <h1 className="text-3xl font-bold mb-2 text-gray-700">Annabel's Birthday ❤️</h1>
-      <p className="text-lg text-gray-700">Choose what you would like to do</p>
+    <div className="relative flex flex-col items-center justify-center min-h-screen text-center bg-gradient-to-b from-pink-100 to-pink-200 px-4 overflow-hidden">
+  <h1 className="text-3xl font-extrabold text-pink-600 drop-shadow mb-2 animate-fade-in">
+    Annabel's Birthday 
+  </h1>
+  <p className="text-md text-gray-700 mb-8 animate-fade-in delay-200">
+    Choose what you'd like to do, bae 💖
+  </p>
 
-      <Link href="/letter">
-        <button className="mt-5 px-6 py-3 w-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-lg shadow-md transition">
-          💌 Read Me
+  <div className="w-55 max-w-sm flex flex-col gap-4 animate-fade-in delay-300">
+    {[
+      { label: '💌 Read Me', href: '/letter' },
+      { label: '📅 Timeline', href: '/timeline' },
+      { label: '🎆 Fireworks', href: '/fireworks' },
+      { label: '💙 Lovemeter', href: '/lovemeter' },
+      { label: '🎰 Slot Machine', href: '/wheel' },
+      { label: '🐤 Send Message', href: '/message' },
+    ].map(({ label, href }) => (
+      <Link key={label} href={href}>
+        <button className="w-full bg-pink-500 hover:bg-pink-600 text-white px-6 py-3 rounded-full text-lg font-medium shadow-md transition-all hover:scale-105 hover:shadow-lg">
+          {label}
         </button>
-        
       </Link>
+    ))}
+  </div>
+</div>
 
-      <Link href="/fireworks">
-        <button className="mt-3 px-6 py-3 w-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-lg shadow-md transition">
-          🎆 Fireworks
-        </button>
-        
-      </Link>
-
-      <Link href="/timeline">
-        <button className="mt-3 px-6 py-3 w-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-lg shadow-md transition">
-          📅 Timeline
-        </button>
-        
-      </Link>
-
-      <Link href="/lovemeter">
-        <button className="mt-3 px-6 py-3 w-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-lg shadow-md transition">
-          💙 Lovemeter
-        </button>
-        
-      </Link>
-
-      <Link href="/wheel">
-        <button className="mt-3 px-6 py-3 w-50 bg-pink-500 hover:bg-pink-600 text-white rounded-full text-lg shadow-md transition">
-          🎰 Slot Machine
-        </button>
-        
-      </Link>
-
-    </div>
   );
 }
